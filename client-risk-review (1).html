@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Risk Review — July 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f0f2f5;
+    color: #1a1a2e;
+    padding: 32px 24px;
+  }
+
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .header {
+    background: #1b3a2f;
+    color: #fff;
+    border-radius: 10px 10px 0 0;
+    padding: 28px 32px 22px;
+  }
+
+  .header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+
+  .header .meta {
+    margin-top: 6px;
+    font-size: 13px;
+    color: #a8c4b8;
+  }
+
+  .summary-bar {
+    background: #fff;
+    border-left: 4px solid #1b3a2f;
+    padding: 16px 32px;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .stat { display: flex; flex-direction: column; }
+  .stat .num { font-size: 26px; font-weight: 700; color: #1b3a2f; }
+  .stat .label { font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+
+  .section-label {
+    background: #1b3a2f;
+    color: #a8c4b8;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 8px 32px;
+  }
+
+  .card {
+    background: #fff;
+    border-bottom: 1px solid #edf0f4;
+    padding: 18px 32px;
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+    gap: 14px;
+    align-items: start;
+  }
+
+  .card:last-child { border-radius: 0 0 10px 10px; }
+
+  .risk-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+
+  .high { background: #e53e3e; }
+  .medium { background: #dd6b20; }
+  .low { background: #38a169; }
+
+  .client-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a2e;
+  }
+
+  .company {
+    font-size: 12px;
+    color: #888;
+    margin-top: 1px;
+  }
+
+  .ticket {
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 2px;
+  }
+
+  .details {
+    margin-top: 8px;
+  }
+
+  .detail-row {
+    font-size: 12.5px;
+    color: #444;
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+
+  .detail-row span {
+    font-weight: 600;
+    color: #1b3a2f;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+    margin-top: 2px;
+  }
+
+  .badge-high { background: #fff5f5; color: #c53030; border: 1px solid #fed7d7; }
+  .badge-medium { background: #fffaf0; color: #c05621; border: 1px solid #fbd38d; }
+  .badge-low { background: #f0fff4; color: #276749; border: 1px solid #c6f6d5; }
+
+  .action {
+    font-size: 12px;
+    color: #2b6cb0;
+    background: #ebf8ff;
+    border: 1px solid #bee3f8;
+    border-radius: 6px;
+    padding: 6px 12px;
+    text-align: center;
+    min-width: 130px;
+    line-height: 1.4;
+  }
+
+  .note-box {
+    background: #fffbea;
+    border: 1px solid #f6e05e;
+    border-radius: 8px;
+    padding: 14px 20px;
+    margin: 20px 0 0;
+    font-size: 12.5px;
+    color: #744210;
+    line-height: 1.6;
+  }
+
+  .note-box strong { display: block; margin-bottom: 4px; font-size: 13px; }
+
+  .footer {
+    text-align: center;
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 24px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <h1>Client Risk Review — Outreach Summary</h1>
+    <div class="meta">Keiona's outreach: July 7, 2026 &nbsp;·&nbsp; Samuel's last follow-up: August 7, 2026</div>
+  </div>
+
+  <div class="summary-bar">
+    <div class="stat"><span class="num">14</span><span class="label">Clients Reviewed</span></div>
+    <div class="stat"><span class="num">5</span><span class="label">High Risk</span></div>
+    <div class="stat"><span class="num">7</span><span class="label">Medium Risk</span></div>
+    <div class="stat"><span class="num">2</span><span class="label">Low / Monitoring</span></div>
+  </div>
+
+  <div class="section-label">🔴 High Risk</div>
+
+  <!-- Ashley Clark -->
+  <div class="card">
+    <div class="risk-dot high"></div>
+    <div>
+      <div class="client-name">Ashley Clark</div>
+      <div class="company">—</div>
+      <div class="ticket">Ticket #17588</div>
+      <div class="details">
+        <div class="detail-row"><span>Outreach:</span> Keiona reached reception, left message. Samuel followed up via email.</div>
+        <div class="detail-row"><span>Status:</span> Onboarded since March. Multiple follow-ups since then — no response from client ever. Automations installed but not live pending client homework (doc review + go-live request).</div>
+        <div class="detail-row"><span>Risk Reason:</span> Long-standing non-response. Client has been continuously messaged since March with zero engagement.</div>
+      </div>
+    </div>
+    <div>
+      <span class="badge badge-high">High Risk</span>
+      <div class="action">Pending Virginia review</div>
+    </div>
+  </div>
+
+  <!-- Kyle Rea -->
+  <div class="card">
+    <div class="risk-dot high"></div>
+    <div>
+      <div class="client-name">Kyle Rea</div>
+      <div class="company">—</div>
+      <div class="ticket">Ticket #17978</div>
+      <div class="details">
+        <div class="detail-row"><span>Outreach:</span> Keiona left VM, sent Gmail. Samuel followed up Friday.</div>
+        <div class="detail-row"><span>Status:</span> Has expressed intent to work on OI, NPS, CA-CB but no action taken. Config form shared. Pending client homework (doc review, go-live, CA timing, On The Way preference).</div>
+        <div class="detail-row"><span>Risk Reason:</span> Expressed interest but no follow-through. No response to multiple touchpoints.</div>
+      </div>
+    </div>
+    <div>
+      <span class="badge badge-high">High Risk</span>
+      <div class="action">Pending Virginia review</div>
+    </div>
+  </div>
+
+
+
+  <!-- Daniel Santos -->
+  <div class="card">
+    <div class="risk-dot high"></div>
+    <div>
+      <div class="client-name">Daniel Santos</div>
+      <div class="company">Turf Tenders, LLC</div>
+      <div class="ticket">Ticket #18014</div>
+      <div class="details">
+        <div class="detail-row"><span>Outreach:</span> Keiona left VM, sent Gmail. Samuel followed up Friday.</div>
+        <div class="detail-row"><span>Status:</span> All upsells inactive. Audit report shared. No response.</div>
+        <div class="detail-row"><span>Risk Reason:</span> Zero engagement. Not live on anything meaningful.</div>
+      </div>
+    </div>
+    <div>
+      <span class="badge badge-high">High Risk</span>
+      <div class="action">Pending Virginia review</div>
+    </div>
+  </div>
+
+  <!-- Nolan Landscaping -->
+  <div class="card">
+    <div class="risk-dot high"></div>
+    <div>
+      <div class="client-name">Nolan Landscaping</div>
+      <div class="company">—</div>
+      <div class="ticket">Ticket #18038</div>
+      <div class="details">
+        <div class="detail-row"><span>Outreach:</span> Keiona left VM, sent Gmail. Samuel followed up Friday.</div>
+        <div class="detail-row"><span>Status:</span> Most automations inactive. Has 8 upsell slots available, none used. No response.</div>
+        <div class="detail-row"><span>Risk Reason:</span> No engagement across multiple touchpoints. Largely not live.</div>
+      </div>
+    </div>
+    <div>
+      <span class="badge badge-high">High Risk</span>
+      <div class="action">Pending Virginia review</div>
+    </div>
+  </div>
+
+  <!-- Cedarcrest Fert -->
+  <div class="card">
+    <div class="risk-dot high"></div>
+    <div>
+      <div class="client-name">Jason</div>
+      <div class="company">Cedarcrest Fertilizing</div>
+      <div class="ticket">Ticket #18043</div>
+      <div class="details">
+        <div class="detail-row"><span>Outreach:</span> Keiona left VM, sent Gmail. Samuel followed up Friday.</div>
+        <div class="detail-row"><span>Status:</span> Some automations inactive. Has 4 additional upsell slots available. Audit shared. No response.</div>
+        <div class="detail-row"><span>Risk Reason:</span> No engagement. Not live on upsells.</div>
+      </div>
+    </div>
+    <div>
+      <span class="badge badge-high">High Risk</span>
+      <div class="action">Pending Virginia review</div>
+    </div>
+  </div>
+
+  <div class="section-label">🟠 Medium Risk</div>
+
+  <!-- Johanna / Brian's Lawn Care -->
+  <div class="card">
+    <div class="risk-dot medium"></div>
+    <div>
+      <div class="client-name">Johanna (Brian's Lawn Care)</div>
+      <div class="company">Brian's Lawn Care</div>
+      <div class="ticket">Ticket #18010</div>
+      <div class="details">
+        <div class="detail-row"><span>Outreach:</span> Keiona reached Johanna directly.</div>
+        <div class="detail-row"><span>Status:</span> Client was reached. Declined a meeting. Said they are in busy season and will edit docs themselves when ready. Said they'll reach out when ready.</div>
+        <div class="detail-row"><span>Risk Reason:</span> Still not live. Self-managing but no timeline given. Busy season could push this further.</div>
+      </div>
+    </div>
+    <div>
+      <span class="badge badge-medium">Medium Risk</span>
+      <div class="action">Pending Virginia review</div>
+    </div>
+  </div>
+
+  <!-- Blue Sky / Matt -->
+  <div class="card">
+    <div class="risk-dot medium"></div>
+    <div>
+      <div class="client-name">Matt</div>
+      <div class="company">Blue Sky</div>
+      <div class="ticket">Ticket #18017</div>
+      <div class="details">
+        <div class="detail-row"><span>Outreach:</span> Keiona reached reception July 8, left message. Samuel followed up Friday.</div>
+        <div class="detail-row"><span>Status:</span> Expressed interest in Newsletter + Landscape Maintenance Upsell previously. Config info still pending from client. Not live.</div>
+        <div class="detail-row"><span>Risk Reason:</span> Had prior engagement but stalled on config details. Receptionist only, Matt not reachable.</div>
+      </div>
+    </div>
+    <div>
+      <span class="badge badge-medium">Medium Risk</span>
+      <div class="action">Pending Virginia review</div>
+    </div>
+  </div>
+
+  <!-- Nolan Smith / Wolf River -->
+  <div class="card">
+    <div class="risk-dot medium"></div>
+    <div>
+      <div class="client-name">Nolan Smith</div>
+      <div class="company">Wolf River Lawn</div>
+      <div class="ticket">Ticket #18023</div>
+      <div class="details">
+        <div class="detail-row"><span>Outreach:</span> Keiona left VM + sent secondary onboarding link. Samuel followed up Friday.</div>
+        <div class="detail-row"><span>Status:</span> Has not completed secondary onboarding. 5 additional upsell slots unused. No response.</div>
+        <div class="detail-row"><span>Risk Reason:</span> Incomplete onboarding. No engagement but secondary link was sent — may need a direct push.</div>
+      </div>
+    </div>
+    <div>
+      <span class="badge badge-medium">Medium Risk</span>
+      <div class="action">Pending Virginia review</div>
+    </div>
+  </div>
+
+  <!-- Mike Jones / ProLawns -->
+  <div class="card">
+    <div class="risk-dot medium"></div>
+    <div>
+      <div class="client-name">Mike Jones</div>
+      <div class="company">ProLawns</div>
+      <div class="ticket">Ticket #18035</div>
+      <div class="details">
+        <div class="detail-row"><span>Outreach:</span> Keiona left VM, sent Gmail. Samuel followed up Friday.</div>
+        <div class="detail-row"><span>Status:</span> Some automations inactive. Audit shared. No response.</div>
+        <div class="detail-row"><span>Risk Reason:</span> No engagement across both touchpoints.</div>
+      </div>
+    </div>
+    <div>
+      <span class="badge badge-medium">Medium Risk</span>
+      <div class="action">Pending Virginia review</div>
+    </div>
+  </div>
+
+  <!-- Perfect Turf / Tristan -->
+  <div class="card">
+    <div class="risk-dot medium"></div>
+    <div>
+      <div class="client-name">Tristan</div>
+      <div class="company">Perfect Turf Lawn and Landscaping</div>
+      <div class="ticket">Ticket #18042</div>
+      <div class="details">
+        <div class="detail-row"><span>Outreach:</span> Keiona left VM, sent Gmail. Samuel followed up Friday.</div>
+        <div class="detail-row"><span>Status:</span> Some automations inactive, upsells not fully live. Audit shared. No response.</div>
+        <div class="detail-row"><span>Risk Reason:</span> No engagement but upsells partially set up — may just need a nudge.</div>
+      </div>
+    </div>
+    <div>
+      <span class="badge badge-medium">Medium Risk</span>
+      <div class="action">Pending Virginia review</div>
+    </div>
+  </div>
+
+  <!-- Quality Lawn Justin -->
+  <div class="card">
+    <div class="risk-dot medium"></div>
+    <div>
+      <div class="client-name">Justin</div>
+      <div class="company">Quality Lawn</div>
+      <div class="ticket">Ticket #18029</div>
+      <div class="details">
+        <div class="detail-row"><span>Outreach:</span> Keiona reached reception, left message, sent Gmail.</div>
+        <div class="detail-row"><span>Status:</span> Receptionist took a message — no direct response from Justin. Not live on upsells.</div>
+        <div class="detail-row"><span>Risk Reason:</span> No reply received. Reachable but not engaged.</div>
+      </div>
+    </div>
+    <div>
+      <span class="badge badge-medium">Medium Risk</span>
+      <div class="action">Pending Virginia review</div>
+    </div>
+  </div>
+
+  <!-- Tylor Grimes / Integrity Sealcoating -->
+  <div class="card">
+    <div class="risk-dot medium"></div>
+    <div>
+      <div class="client-name">Tylor Grimes</div>
+      <div class="company">Integrity Sealcoating LLC</div>
+      <div class="ticket">Ticket #18037</div>
+      <div class="details">
+        <div class="detail-row"><span>Outreach:</span> Keiona left VM, sent Gmail. Samuel followed up Friday.</div>
+        <div class="detail-row"><span>Status:</span> Some automations inactive. Upsells not live. Audit report shared. No response.</div>
+        <div class="detail-row"><span>Risk Reason:</span> No engagement across both touchpoints. Not live on upsells.</div>
+      </div>
+    </div>
+    <div>
+      <span class="badge badge-medium">Medium Risk</span>
+      <div class="action">Pending Virginia review</div>
+    </div>
+  </div>
+
+  <div class="section-label">🟢 Low Risk / No Action Needed</div>
+
+  <!-- Ben Genet -->
+  <div class="card">
+    <div class="risk-dot low"></div>
+    <div>
+      <div class="client-name">Ben Genet</div>
+      <div class="company">—</div>
+      <div class="ticket">Ticket #18012</div>
+      <div class="details">
+        <div class="detail-row"><span>Outreach:</span> Keiona left VM, sent Gmail. Samuel followed up August 7.</div>
+        <div class="detail-row"><span>Status:</span> Only OI automation pending. Client replied June 23 — waiting on internal meeting to tag clients. Has been in communication.</div>
+        <div class="detail-row"><span>Risk Reason:</span> Single automation not live. Client is engaged and has given a reason for the delay.</div>
+      </div>
+    </div>
+    <div>
+      <span class="badge badge-low">Low Risk</span>
+      <div class="action">Pending Virginia review</div>
+    </div>
+  </div>
+
+  <!-- Jesse Edwards -->
+  <div class="card">
+    <div class="risk-dot low"></div>
+    <div>
+      <div class="client-name">Jesse Edwards</div>
+      <div class="company">Edwards Lawn Service</div>
+      <div class="ticket">Ticket #18024</div>
+      <div class="details">
+        <div class="detail-row"><span>Outreach:</span> No call needed. Keiona spoke with Jesse last week.</div>
+        <div class="detail-row"><span>Status:</span> Engaged with Keiona directly. Busy but responsive. Meeting link sent per his request.</div>
+        <div class="detail-row"><span>Risk Reason:</span> Active engagement — follow-up scheduled for next week.</div>
+      </div>
+    </div>
+    <div>
+      <span class="badge badge-low">Engaged</span>
+      <div class="action">Keiona monitoring</div>
+    </div>
+  </div>
+
+
+
+  <div class="note-box">
+    <strong>📋 Excluded from this list</strong>
+    <strong>Dupage Lawn / Bryan (#18028)</strong> — Subscription paused for 3 months. Virginia handling check-in. Ticket closed.<br><br>
+    <strong>Hal Pruitt / Cumming Lawn (#18034)</strong> — Only inactive automations are New Client Welcome &amp; Newsletters, excluded from outreach scope. Ticket closed.
+  </div>
+
+  <div class="footer">SimpleGrowth Systems · Client Risk Review · Generated August 11, 2026</div>
+</div>
+</body>
+</html>
